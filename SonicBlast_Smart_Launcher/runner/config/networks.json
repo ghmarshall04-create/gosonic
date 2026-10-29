@@ -1,0 +1,9 @@
+{
+  "ethereum": { "label": "Ethereum", "family": "evm", "chainId": 1, "rpcEnv": "SONICBLAST_ETHEREUM_RPC_URL", "routerEnv": "SONICBLAST_ETHEREUM_V2_ROUTER" },
+  "base": { "label": "Base", "family": "evm", "chainId": 8453, "rpcEnv": "SONICBLAST_BASE_RPC_URL", "routerEnv": "SONICBLAST_BASE_V2_ROUTER" },
+  "arbitrum": { "label": "Arbitrum One", "family": "evm", "chainId": 42161, "rpcEnv": "SONICBLAST_ARBITRUM_RPC_URL", "routerEnv": "SONICBLAST_ARBITRUM_V2_ROUTER" },
+  "optimism": { "label": "Optimism", "family": "evm", "chainId": 10, "rpcEnv": "SONICBLAST_OPTIMISM_RPC_URL", "routerEnv": "SONICBLAST_OPTIMISM_V2_ROUTER" },
+  "polygon": { "label": "Polygon", "family": "evm", "chainId": 137, "rpcEnv": "SONICBLAST_POLYGON_RPC_URL", "routerEnv": "SONICBLAST_POLYGON_V2_ROUTER" },
+  "bsc": { "label": "BNB Chain", "family": "evm", "chainId": 56, "rpcEnv": "SONICBLAST_BSC_RPC_URL", "routerEnv": "SONICBLAST_BSC_V2_ROUTER" },
+  "avalanche": { "label": "Avalanche C-Chain", "family": "evm", "chainId": 43114, "rpcEnv": "SONICBLAST_AVALANCHE_RPC_URL", "routerEnv": "SONICBLAST_AVALANCHE_V2_ROUTER" }
+}

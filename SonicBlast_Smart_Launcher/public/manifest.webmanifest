@@ -1,0 +1,24 @@
+{
+  "name": "SonicBlast Smart Launcher",
+  "short_name": "SB Smart",
+  "description": "Sonic IQ guidance, multichain creations, local launch handoffs, ranked boards, and live Sonic rooms by No Doubt Solutions.",
+  "id": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#f7f9fc",
+  "icons": [
+    {
+      "src": "/assets/favicon-white.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/sonicblast-mark.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

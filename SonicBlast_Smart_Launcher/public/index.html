@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <meta name="description" content="SonicBlast Smart Launcher by No Doubt Solutions — Sonic IQ guidance, multichain launches, ranked creations, and live social rooms." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/favicon-white.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/favicon-white.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>SonicBlast Smart Launcher — Sound. Speed. Scale.</title>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="SonicBlast Smart Launcher home">
+        <img src="/assets/sonicblast-mark.jpeg" alt="SonicBlast mark" />
+        <span><strong>SONIC</strong>BLAST <small>SMART</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#creations">Creations</a>
+        <a href="#rooms">Sonic room</a>
+        <a href="#runner">Runner</a>
+      </nav>
+      <div class="header-actions">
+        <button class="ghost install-button" id="installButton" type="button" hidden>Install</button>
+        <button class="button primary launch-trigger" data-open-launch type="button">Launch <span>↗</span></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Sonic IQ launchpad + social floor</p>
+          <h1>Make a signal.<br /><em>Launch smarter.</em></h1>
+          <p class="lead">One clean launch flow. A ranked home for every creation. A Sonic room that stays alive when the market starts talking.</p>
+          <div class="hero-actions">
+            <button class="button primary hero-launch" data-open-launch type="button">Launch a creation <span>↗</span></button>
+            <button class="button snbl-buy" id="buySNBL" type="button">Buy SNBL <span>↗</span></button>
+            <a class="button secondary" href="#creations">Explore the board</a>
+          </div>
+          <div class="trust-row" aria-label="Product qualities">
+            <span>Browser + PWA</span><i></i><span>Local signing</span><i></i><span>Live rooms</span><i></i><span>No Doubt Solutions</span>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <div class="halo"></div>
+          <img src="/assets/sonicblast-mark.jpeg" alt="" />
+          <p>0x018e…42b7</p>
+        </div>
+      </section>
+
+      <section class="launch-rail shell" id="launch">
+        <div class="rail-intro">
+          <p class="eyebrow">The launch engine</p>
+          <h2>All heat. <span>One flow.</span></h2>
+          <p>Answer one field at a time, review the plan, publish it to the board, then hand the signed chain action to your local SonicBlast runner.</p>
+          <button class="text-button" data-open-launch type="button">Open launch flow <span>→</span></button>
+        </div>
+        <div class="rail-steps" aria-label="Launch flow steps">
+          <article><span>01</span><strong>Shape</strong><p>Chain, name, ticker, supply.</p></article>
+          <article><span>02</span><strong>Review</strong><p>One clean local runner handoff.</p></article>
+          <article><span>03</span><strong>Show up</strong><p>Rank the creation and open its room.</p></article>
+        </div>
+      </section>
+
+      <section class="market shell" id="creations">
+        <div class="market-heading">
+          <div>
+            <p class="eyebrow">Creation board</p>
+            <h2>What the community is <span>watching.</span></h2>
+          </div>
+          <div class="market-stats" aria-label="Creation board statistics">
+            <span><b id="creationCount">—</b> creations</span>
+            <span><b id="heatTotal">—</b> total heat</span>
+          </div>
+        </div>
+        <div class="market-toolbar">
+          <p><span class="live-dot"></span> Ranked by community heat, then newest first</p>
+          <button class="small-button" id="refreshCreations" type="button">Refresh board</button>
+        </div>
+        <div id="creationGrid" class="creation-grid" aria-live="polite">
+          <div class="board-loading"><span class="pulse-orb"></span><p>Loading the board…</p></div>
+        </div>
+      </section>
+
+      <section class="rooms shell" id="rooms">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">The Sonic room</p>
+            <h2>Let the launch <span>have a pulse.</span></h2>
+          </div>
+          <p>Build a room around each creation, then switch from chat into direct voice or video with the people who join it.</p>
+        </div>
+        <div class="room-layout">
+          <aside class="room-control">
+            <div class="room-glow"></div>
+            <p class="mini-label">CREATE OR JOIN</p>
+            <label>Room name<input id="roomName" maxlength="48" placeholder="midnight-signal" /></label>
+            <label>Display name<input id="displayName" maxlength="32" placeholder="Your name" /></label>
+            <div class="room-actions"><button id="createRoom" class="button secondary" type="button">Create</button><button id="joinRoom" class="button primary" type="button">Join room</button></div>
+            <p id="roomStatus" class="room-status">Pick a room name, then bring the conversation in.</p>
+
+            <div class="call-console">
+              <div class="call-console-head"><span class="mini-label">LIVE CALL</span><span id="callStatus">Room first</span></div>
+              <div class="call-actions">
+                <button id="voiceCallButton" class="call-button" type="button" disabled><span>◖</span> Voice</button>
+                <button id="videoCallButton" class="call-button" type="button" disabled><span>▣</span> Video</button>
+                <button id="muteButton" class="call-button icon-call" type="button" disabled aria-label="Mute microphone">◒</button>
+                <button id="cameraButton" class="call-button icon-call" type="button" disabled aria-label="Turn camera off">◉</button>
+                <button id="endCallButton" class="call-button end-call" type="button" disabled aria-label="Leave call">×</button>
+              </div>
+              <p>Calls connect directly between room members. Add TURN settings at deployment for the strongest cross-network connection.</p>
+            </div>
+
+            <div class="social-seed"><span>✦</span><p>Every board listing gets a shareable room. Take the chat from launch notes to a live call in one place.</p></div>
+          </aside>
+
+          <section class="chat-panel" aria-label="Live SonicBlast chat room">
+            <div class="chat-head">
+              <div><span class="live-dot"></span><strong id="activeRoom">Room offline</strong></div>
+              <div class="chat-meta"><span id="presence">0 online</span><button class="chat-share" id="shareRoom" type="button" disabled>Share</button></div>
+            </div>
+            <div class="call-stage" id="callStage">
+              <div class="call-stage-empty" id="callEmpty"><span>SB</span><p>Join voice or video to open the live stage.</p></div>
+              <article class="media-tile local-media" id="localTile" hidden>
+                <video id="localPreview" autoplay muted playsinline></video>
+                <span>You</span>
+              </article>
+              <div class="remote-peers" id="remotePeers"></div>
+            </div>
+            <div id="messageList" class="messages"><div class="welcome-message"><span>SB</span><p>Create or join a room to start the live chat.</p></div></div>
+            <form id="messageForm" class="message-form"><input id="messageInput" maxlength="1000" placeholder="Say something to the room…" autocomplete="off" disabled /><button class="send-button" type="submit" disabled>Send ↗</button></form>
+          </section>
+        </div>
+      </section>
+
+      <section class="runner shell" id="runner">
+        <div class="runner-copy"><p class="eyebrow">Operator lane</p><h2>Bash works <span>behind the curtain.</span></h2><p>The browser flow stays clean. When the creation is ready, SonicBlast builds a reviewed runner file for your own workstation, where its local CLI configuration and signing method stay under your control.</p><button class="button secondary" data-open-launch type="button">Prepare a runner file</button></div>
+        <div class="runner-terminal"><div class="terminal-bar"><span></span><span></span><span></span><b>sonicblast smart local runner</b></div><pre><span class="prompt">$</span> ./runner/bin/sonicblast.mjs doctor
+<span class="success">✓</span> operator machine connected
+<span class="success">✓</span> chain CLI tools checked
+<span class="success">✓</span> signing stays local
+<span class="muted">→</span> launch flow creates the reviewed handoff</pre></div>
+      </section>
+    </main>
+
+    <footer class="shell"><div class="footer-brand"><strong>SONIC</strong>BLAST <span>•</span> SMART LAUNCHER • POWERED BY NO DOUBT SOLUTIONS</div><p>Sound. Speed. Scale.</p></footer>
+
+    <nav class="floating-nav" aria-label="Quick navigation">
+      <a href="#top"><span>⌂</span><b>Home</b></a>
+      <button type="button" data-open-launch><span>＋</span><b>Launch</b></button>
+      <a href="#creations"><span>↥</span><b>Board</b></a>
+      <a href="#rooms"><span>◌</span><b>Room</b></a>
+      <a href="#runner"><span>⌘</span><b>Runner</b></a>
+    </nav>
+
+    <div class="modal" id="launchModal" aria-hidden="true">
+      <button class="modal-backdrop" id="closeLaunchBackdrop" type="button" aria-label="Close launch flow"></button>
+      <section class="launch-modal-panel" role="dialog" aria-modal="true" aria-labelledby="launchModalTitle">
+        <div class="modal-head">
+          <div><p class="eyebrow">SonicBlast Smart launch flow</p><h2 id="launchModalTitle">Build the <span>signal.</span></h2></div>
+          <button class="modal-close" id="closeLaunch" type="button" aria-label="Close launch flow">×</button>
+        </div>
+        <div class="flow-progress"><span id="flowStepLabel">Step 1 of 7</span><div><i id="flowProgressBar"></i></div><span id="flowStepHint">Choose a chain</span></div>
+        <form id="launchFlow" novalidate>
+          <input name="decimals" id="flowDecimals" type="hidden" value="18" />
+          <input name="quoteAsset" id="flowQuoteAsset" type="hidden" value="ETH" />
+          <div class="flow-step active" data-flow-step="0">
+            <p class="flow-overline">First, where does it live?</p>
+            <label class="flow-label">Choose a chain
+              <select name="chain" id="flowChain" required>
+                <option value="base">Base</option><option value="ethereum">Ethereum</option><option value="arbitrum">Arbitrum One</option><option value="optimism">Optimism</option><option value="polygon">Polygon</option><option value="bsc">BNB Chain</option><option value="avalanche">Avalanche C-Chain</option><option value="solana">Solana</option>
+              </select>
+            </label>
+            <p class="flow-caption">Defaults stay sensible for the chain you choose. You can review all details before anything runs.</p>
+          </div>
+          <div class="flow-step" data-flow-step="1">
+            <p class="flow-overline">Give it a name.</p>
+            <label class="flow-label">Token name<input name="name" id="flowName" maxlength="64" placeholder="Midnight Signal" autocomplete="off" required /></label>
+            <p class="flow-caption">Use 2–64 letters, numbers, or simple punctuation.</p>
+          </div>
+          <div class="flow-step" data-flow-step="2">
+            <p class="flow-overline">Make it recognizable.</p>
+            <label class="flow-label">Ticker symbol<input name="symbol" id="flowSymbol" maxlength="12" placeholder="SIGNAL" autocapitalize="characters" autocomplete="off" required /></label>
+            <p class="flow-caption">2–12 uppercase letters or numbers.</p>
+          </div>
+          <div class="flow-step" data-flow-step="3">
+            <p class="flow-overline">Set the fixed supply.</p>
+            <label class="flow-label">Total supply<input name="supply" id="flowSupply" inputmode="numeric" placeholder="1000000000" autocomplete="off" required /></label>
+            <p class="flow-caption" id="supplyCaption">Base and other EVM chains use 18 decimals by default.</p>
+          </div>
+          <div class="flow-step" data-flow-step="4">
+            <p class="flow-overline">Who receives the supply?</p>
+            <label class="flow-label" id="flowOwnerLabel">Public owner address<input name="ownerAddress" id="flowOwner" spellcheck="false" autocomplete="off" placeholder="0x public address" required /></label>
+            <p class="flow-caption">This is a public destination address. SonicBlast never asks for recovery phrases or private keys in the app.</p>
+          </div>
+          <div class="flow-step liquidity-step" data-flow-step="5">
+            <p class="flow-overline">Set the opening liquidity.</p>
+            <input name="liquidityMode" id="flowLiquidityMode" type="hidden" value="native" />
+            <div class="asset-toggle" role="group" aria-label="Liquidity asset type">
+              <button class="asset-toggle-option active" id="nativeAssetToggle" data-liquidity-mode="native" type="button"><span>Network token</span><b id="nativeAssetLabel">ETH</b></button>
+              <button class="asset-toggle-option" id="stableAssetToggle" data-liquidity-mode="stable" type="button"><span>Stablecoins</span><b>USDC · USDT</b></button>
+            </div>
+            <div class="stablecoin-list" id="stablecoinList" aria-label="Select a stablecoin" hidden></div>
+            <label class="flow-label" id="liquidityAmountLabel">Amount in ETH<input name="liquidityAmount" id="flowLiquidity" inputmode="decimal" placeholder="0.50" autocomplete="off" required /></label>
+            <p class="flow-caption" id="liquidityCaption">Start with the network token or choose an approved stablecoin pair. Your runner asks you to confirm the selected venue before adding it.</p>
+          </div>
+          <div class="flow-step" data-flow-step="6">
+            <p class="flow-overline">Bring a metadata link?</p>
+            <label class="flow-label">Metadata URI <span>optional</span><input name="metadataUri" id="flowMetadata" type="url" placeholder="https://your-domain.com/token.json" autocomplete="off" /></label>
+            <p class="flow-caption">You can skip this now. It is used for Token-2022 metadata on Solana.</p>
+          </div>
+
+          <aside class="smart-nudge" id="smartNudge" aria-live="polite">
+            <div class="smart-nudge-head"><span>SONIC IQ</span><strong id="smartNudgeTitle">Chain-aware setup</strong></div>
+            <p id="smartNudgeText">Sonic IQ matches each field to the selected chain and local runner lane.</p>
+          </aside>
+
+          <div class="flow-review" id="flowReview" hidden>
+            <div class="review-token"><div class="review-symbol" id="reviewSymbol">SB</div><div><p class="flow-overline">Ready for review</p><h3 id="reviewName">Your creation</h3><span id="reviewChain">Base</span></div></div>
+            <div class="review-grid"><div><span>Supply</span><b id="reviewSupply">—</b></div><div><span>Owner</span><b id="reviewOwner">—</b></div><div><span>Liquidity</span><b id="reviewLiquidity">—</b></div><div><span>Room</span><b id="reviewRoom">—</b></div></div>
+            <section class="smart-review" id="smartReview" aria-live="polite" hidden>
+              <div class="smart-review-head"><div class="smart-score" id="smartScore">—</div><div><span>SONIC IQ READINESS</span><strong id="smartLabel">Reviewing setup</strong></div></div>
+              <p id="smartSummary"></p>
+              <ul id="smartSignals" class="smart-signals"></ul>
+              <div class="smart-next"><span>Next locally</span><p id="smartNextAction"></p></div>
+            </section>
+            <div class="runner-handoff"><div><span class="status-chip">LOCAL RUNNER</span><h3>Your signed steps stay on your device.</h3><p>Download the reviewed runner file and use it only after your local `doctor` check passes.</p></div><button class="small-button" id="downloadCommand" type="button">Download runner file</button></div>
+            <ol id="planChecklist" class="checklist"></ol>
+            <div class="review-actions"><button class="button secondary" id="backToFlow" type="button">Edit flow</button><button class="button primary" id="openListing" type="button">Publish to board <span>→</span></button></div>
+
+            <div class="listing-details" id="listingDetails" hidden>
+              <p class="flow-overline">Make it visible</p>
+              <p class="listing-copy">Publish the creation now as planned, or add its deployed address and approved market link once it is live.</p>
+              <div class="listing-grid"><label>Creation room<input name="room" id="listingRoom" maxlength="48" placeholder="signal-launch" /></label><label id="tokenAddressLabel">Token address <span>optional</span><input name="tokenAddress" id="listingTokenAddress" placeholder="0x deployed contract" spellcheck="false" /></label></div>
+              <label>Market buy link <span>optional, HTTPS</span><input name="buyUrl" id="listingBuyUrl" type="url" placeholder="https://your-approved-market-link" /></label>
+              <div class="listing-actions"><button class="button primary" id="publishCreation" type="button">Publish creation <span>↗</span></button><button class="small-button" id="cancelListing" type="button">Not yet</button></div>
+              <p class="form-note">A Buy button appears only after a deployed token address and HTTPS market link are supplied.</p>
+            </div>
+          </div>
+
+          <p class="field-message" id="fieldMessage" aria-live="polite"></p>
+          <div class="flow-nav" id="flowNav"><button class="small-button" id="flowBack" type="button" hidden>Back</button><button class="button primary" id="flowNext" type="button">Continue <span>→</span></button></div>
+        </form>
+      </section>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

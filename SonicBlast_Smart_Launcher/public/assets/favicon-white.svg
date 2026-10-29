@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SonicBlast">
+  <rect width="64" height="64" rx="16" fill="#ffffff"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" fill="none" stroke="#dce5ef" stroke-width="3"/>
+  <path d="M14 21c2-7 9-11 17-11h13l-8 9H28c-3 0-5 2-6 5 0 3 2 5 6 5h9l-7 8H20c-7 0-11-5-10-11 0-2 1-4 4-5Z" fill="#0f6fff"/>
+  <path d="M44 18 31 35h8l-12 17 19-22h-8z" fill="#16a34a"/>
+  <circle cx="48" cy="48" r="4" fill="#ef4444"/>
+</svg>
