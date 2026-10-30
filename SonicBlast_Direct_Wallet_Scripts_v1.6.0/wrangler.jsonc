@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sonicblast-smart-launcher",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-29",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/ws/*"],
+    "not_found_handling": "single-page-application"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT_ROOM",
+        "class_name": "ChatRoom"
+      },
+      {
+        "name": "LAUNCH_REGISTRY",
+        "class_name": "LaunchRegistry"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ChatRoom"]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": ["LaunchRegistry"]
+    }
+  ],
+  "vars": {
+    "SONICBLAST_PROJECT_REFERENCE": "0x018ea8d2f38f696b2d201a01e5cd04f6272742b7",
+    "LAUNCH_EXECUTION_MODE": "direct-wallet-scripts",
+    "RTC_ICE_SERVERS_JSON": "[]"
+  }
+}
